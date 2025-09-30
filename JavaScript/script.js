@@ -262,48 +262,24 @@ document.querySelectorAll(".toggle-btn").forEach((btn) => {
 });
 
 // --------------------------------------------------------------------------------------------------
-const exploreSearchBtn = document.getElementById("exploreSearchBtn");
-const exploreInput = document.querySelector(".explore-search-bar input");
-const exploreMessageBox = document.getElementById("exploreMessageBox");
+//  Sign Up / Log In System with Popup + Redirect + LocalStorage
+document.addEventListener("DOMContentLoaded", () => {
+  const signupBtn = document.getElementById("signup-btn");
+  const loginBtn = document.getElementById("login-btn");
+  const formTitle = document.getElementById("form-title");
+  const formSubtitle = document.getElementById("form-subtitle");
+  const authForm = document.getElementById("auth-form");
+  const usernameField = document.getElementById("username");
+  const emailField = document.getElementById("email");
+  const passwordField = document.getElementById("password");
+  const submitBtn = document.getElementById("submit-btn");
 
-exploreSearchBtn.addEventListener("click", () => {
-  const value = exploreInput.value.trim();
-  exploreMessageBox.style.display = "block";
-
-  if (value) {
-    exploreMessageBox.textContent = `🔍 Searching destinations for: "${value}"`;
-    exploreMessageBox.className = "explore-message success";
-  } else {
-    exploreMessageBox.textContent = "⚠️ Please enter a destination name!";
-    exploreMessageBox.className = "explore-message error";
-  }
-
-  setTimeout(() => {
-    exploreMessageBox.style.display = "none";
-  }, 4000);
-});
-
-
-// -----------------------------------------------------------------------------------------------------------------
-// LogIn and Sign In 
-document.addEventListener('DOMContentLoaded', () => {
-
-  const signupBtn = document.getElementById('signup-btn');
-  const loginBtn = document.getElementById('login-btn');
-  const formTitle = document.getElementById('form-title');
-  const formSubtitle = document.getElementById('form-subtitle');
-  const authForm = document.getElementById('auth-form');
-  const usernameField = document.getElementById('username');
-  const emailField = document.getElementById('email');
-  const passwordField = document.getElementById('password');
-  const submitBtn = document.getElementById('submit-btn');
-
- 
-  let popup = document.getElementById('popup-message');
+  //  Create popup
+  let popup = document.getElementById("popup-message");
   if (!popup) {
-    popup = document.createElement('div');
-    popup.id = 'popup-message';
-    popup.className = 'popup hidden';
+    popup = document.createElement("div");
+    popup.id = "popup-message";
+    popup.className = "popup hidden";
     popup.innerHTML = `
       <div class="popup-content">
         <h3 id="popup-title">Success</h3>
@@ -312,13 +288,15 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`;
     document.body.appendChild(popup);
   }
-  const popupTitle = popup.querySelector('#popup-title');
-  const popupText = popup.querySelector('#popup-text');
-  const popupClose = popup.querySelector('#popup-close');
 
-  const styleId = 'travel-auth-popup-style';
+  const popupTitle = popup.querySelector("#popup-title");
+  const popupText = popup.querySelector("#popup-text");
+  const popupClose = popup.querySelector("#popup-close");
+
+  //  Popup CSS
+  const styleId = "travel-auth-popup-style";
   if (!document.getElementById(styleId)) {
-    const styleEl = document.createElement('style');
+    const styleEl = document.createElement("style");
     styleEl.id = styleId;
     styleEl.textContent = `
       .popup { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:9999; }
@@ -332,85 +310,92 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(styleEl);
   }
 
+  //  Validation check
   if (!signupBtn || !loginBtn || !authForm || !usernameField || !emailField || !passwordField || !submitBtn) {
-    console.warn('Auth script: missing expected elements — check IDs.');
+    console.warn("Auth script: missing expected elements — check IDs.");
     return;
   }
 
-  signupBtn.type = 'button';
-  loginBtn.type = 'button';
-  submitBtn.type = 'submit';
+  signupBtn.type = "button";
+  loginBtn.type = "button";
+  submitBtn.type = "submit";
 
   let isSignup = true;
 
+  //  Switch between Signup / Login
   function setMode(toSignup) {
     isSignup = !!toSignup;
     if (isSignup) {
-      signupBtn.classList.add('active');
-      loginBtn.classList.remove('active');
+      signupBtn.classList.add("active");
+      loginBtn.classList.remove("active");
       formTitle.textContent = "Begin Your Adventure";
       formSubtitle.textContent = "Sign up with an Open account";
-      usernameField.style.display = '';
+      usernameField.style.display = "";
       usernameField.required = true;
       submitBtn.textContent = "Let's Start";
       usernameField.focus();
     } else {
-      loginBtn.classList.add('active');
-      signupBtn.classList.remove('active');
+      loginBtn.classList.add("active");
+      signupBtn.classList.remove("active");
       formTitle.textContent = "Welcome Back!";
       formSubtitle.textContent = "Log in to your account";
-      usernameField.style.display = 'none';
+      usernameField.style.display = "none";
       usernameField.required = false;
       submitBtn.textContent = "Log In";
       emailField.focus();
     }
   }
 
-  setMode(true);
+  setMode(true); 
 
-  // Click handlers
-  signupBtn.addEventListener('click', () => setMode(true));
-  loginBtn.addEventListener('click', () => setMode(false));
+  signupBtn.addEventListener("click", () => setMode(true));
+  loginBtn.addEventListener("click", () => setMode(false));
 
-  // Popup helpers
+  
   function showPopup(title, message) {
     popupTitle.textContent = title;
     popupText.textContent = message;
-    popup.classList.remove('hidden');
-    if (popupClose) popupClose.focus();
+    popup.classList.remove("hidden");
+    popupClose.focus();
   }
   function hidePopup() {
-    popup.classList.add('hidden');
+    popup.classList.add("hidden");
   }
 
-  // Close handlers
-  if (popupClose) popupClose.addEventListener('click', hidePopup);
-  popup.addEventListener('click', (ev) => {
+  popupClose.addEventListener("click", hidePopup);
+  popup.addEventListener("click", (ev) => {
     if (ev.target === popup) hidePopup();
   });
 
-  // Submit handler
-  authForm.addEventListener('submit', (e) => {
+  authForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const usernameVal = (usernameField.value || '').trim();
-    const emailVal = (emailField.value || '').trim();
+    const usernameVal = (usernameField.value || "").trim();
+    const emailVal = (emailField.value || "").trim();
 
     if (isSignup) {
-      //  email & password are required by HTML, username required by
-      showPopup('🎉 Sign Up Successful', `Welcome aboard${usernameVal ? ', ' + usernameVal : ''}!`);
+      // Save to localStorage
+      localStorage.setItem("userEmail", emailVal);
+      localStorage.setItem("userName", usernameVal);
+
+      showPopup("🎉 Sign Up Successful", `Welcome aboard${usernameVal ? ", " + usernameVal : ""}!`);
       authForm.reset();
-      // After signup, show login mode.
-      setMode(false);
+
+      // Switch to login after sign up
+      setTimeout(() => {
+        setMode(false);
+      }, 2000);
     } else {
-      // For login we just show success now 
-      showPopup('✨ Login Successful', `Welcome back${usernameVal ? ', ' + usernameVal : ''}!`);
+      showPopup("✨ Login Successful", `Welcome back${usernameVal ? ", " + usernameVal : ""}!`);
       authForm.reset();
-      // keep in login mode so user can log back in if needed
-      setMode(false);
+
+    
+      setTimeout(() => {
+        window.location.href = "index.html"; 
+      }, 2000);
     }
   });
-  // Debugging
-  console.log('Auth script initialized — mode:', isSignup ? 'signup' : 'login');
+
+  console.log("Auth script initialized — mode:", isSignup ? "signup" : "login");
 });
 
 // ---------------------------------------------------------------------------------------------
