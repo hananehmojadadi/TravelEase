@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Travel Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+      rel="stylesheet"/>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="images/favicon.png.png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- HERO Section -->
+    <header class="hero" id="Home">
+      <nav class="navbar">
+        <div class="logo">TravelEase</div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#Home">Home</a>
+          <a href="#About">About</a>
+          <a href="#destination">Destination</a>
+          <a href="#Packages">Packages</a>
+          <a href="#Contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <small>TRAVEL WEBSITE</small>
+          <h1>NEVER STOP EXPLORING THE WORLD</h1>
+          <p>
+            Discover breathtaking destinations and book your next adventure with
+            us.
+          </p>
+          <h4>Let's Travel Now</h4>
+        </div>
+
+        <!-- hero swiper -->
+        <div class="hero-swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide glass-card">
+              <h4>Virtual Tour 360°</h4>
+              <p>
+                Explore our destinations in a full immersive 360° virtual
+                experience before your trip and get a real glimpse of what
+                awaits you.
+              </p>
+              <button class="btn btn-light btn-sm rounded-pill">
+                Start Now
+              </button>
+            </div>
+
+            <div class="swiper-slide glass-card">
+              <h4>Location</h4>
+              <p>
+                Get detailed info about where you'll stay, nearby attractions to
+                explore, and local experiences waiting for you.
+              </p>
+              <button class="btn btn-light btn-sm rounded-pill">
+                Read More
+              </button>
+            </div>
+
+            <div class="swiper-slide glass-card">
+              <h4>Map & Amenities</h4>
+              <p>
+                View maps, facilities, and all the essentials included to make
+                your trip smooth, relaxing, and comfortable.
+              </p>
+              <button class="btn btn-light btn-sm rounded-pill">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- glass hero slider button -->
+      <div class="bottom-controls">
+        <span id="slide-number">01</span>
+        <div class="control-btn" id="prevBtn" aria-label="hero-prev">‹</div>
+        <div class="control-btn" id="nextBtn" aria-label="hero-next">›</div>
+      </div>
+    </header>
+
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- Destination Section, it works with API -->
+    <section class="destination" id="destination">
+      <div class="destination-container">
+        <h2>Find Your <span>Best</span> Destination</h2>
+        <p>
+          We have more than <strong>2000 destinations</strong> you can choose
+        </p>
+
+        <div class="explore-search-bar">
+          <input type="text" placeholder="🔍 Search Destination" />
+          <button id="exploreSearchBtn">Search</button>
+        </div>
+
+        <!-- Message Box -->
+        <div class="explore-message" id="exploreMessageBox"></div>
+
+        <div class="explore-slider">
+          <div class="explore-card" id="firstCard">
+            <img
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=60"
+              alt="Beach"
+            />
+            <span>Beach</span>
+          </div>
+          <div class="explore-card">
+            <img src="images/des.jpg.jpg" alt="Desert" />
+            <span>Desert</span>
+          </div>
+          <div class="explore-card">
+            <img src="images/des2.jpg.jpeg" alt="Resort" />
+            <span>Resort</span>
+          </div>
+          <div class="explore-card">
+            <img src="images/des1.jpg.jpeg" alt="Mountains" />
+            <span>Mountains</span>
+          </div>
+          <div class="explore-card">
+            <img src="images/des3.jpg.jpeg" alt="Waterfall" />
+            <span>Waterfall</span>
+          </div>
+        </div>
+        <!-- Click see more and go next page (gallery page) -->
+        <a href="gallery.html" class="explore-see-more">See more</a>
+      </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+    <!-- Book Popular Destinations Section -->
+    <section class="popular-destinations" id="Tours">
+      <div class="container">
+        <div
+          class="d-flex align-items-center justify-content-between mb-4 popular-header">
+          <div>
+            <small>Popular Destinations</small>
+            <h2>Book Your Next Adventure</h2>
+            <p class="text-muted mb-0">
+              Swipe through our top picks and pick your next getaway.
+            </p>
+          </div>
+          <div class="controls d-flex gap-2">
+            <div id="dest-prev" class="circle-nav" aria-label="dest-prev">
+              ‹
+            </div>
+            <div id="dest-next" class="circle-nav" aria-label="dest-next">
+              ›
+            </div>
+          </div>
+        </div>
+
+        <!-- destination-swiper -->
+        <div class="swiper destination-swiper">
+          <div class="swiper-wrapper">
+            <!-- slide 1 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/australia (1).jpeg" alt="Australia" />
+                  <div class="price-badge">$895.50</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Great Barrier Reef</h4>
+                    <p class="card-sub">Australia · 3 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.8 ★ (1.2k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Great Barrier Reef"
+                      data-price="$895.50"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- slide 2 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/Tour.jpg.jpeg" alt="Swis" />
+                  <div class="price-badge">$769.99</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Swiss Alps</h4>
+                    <p class="card-sub">Switzerland · 5 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.7 ★ (980)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Swiss Alps"
+                      data-price="$769.99">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- slide 3 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/greece.jpg.png" alt="Greece" />
+                  <div class="price-badge">$399.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Santorini</h4>
+                    <p class="card-sub">Greece · 2 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- slide 4 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/italy.jpg.png" alt="Ialy" />
+                  <div class="price-badge">$935.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Venice</h4>
+                    <p class="card-sub">Italy · 4 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.6 ★ (730)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Venice"
+                      data-price="$935.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/Frence.jpg.jpeg" alt="Frence" />
+                  <div class="price-badge">$499.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">France</h4>
+                    <p class="card-sub">France · 3 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/turkey.jpg.jpeg" alt="Turkey" />
+                  <div class="price-badge">$599.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Turkey</h4>
+                    <p class="card-sub">Ankara · 4 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/USA.jpg.jpeg" alt="USA" />
+                  <div class="price-badge">$459.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">America</h4>
+                    <p class="card-sub">los angeles · 3 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/londan.jpg.jpeg" alt="londan" />
+                  <div class="price-badge">$399.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Uk</h4>
+                    <p class="card-sub">Landon · 2 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="swiper-slide">
+              <div class="destination-card">
+                <div class="card-media">
+                  <img src="images/dubai.jpeg" alt="londan" />
+                  <div class="price-badge">$499.00</div>
+                </div>
+                <div class="card-body">
+                  <div>
+                    <h4 class="card-title">Dubia</h4>
+                    <p class="card-sub">Abu Zabi · 2 nights</p>
+                  </div>
+                  <div class="card-footer">
+                    <span class="rating">4.9 ★ (2.1k)</span>
+                    <button
+                      class="btn-book"
+                      data-title="Santorini"
+                      data-price="$399.00">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking section when you click on Book now button of each card -->
+    <div class="modal fade" id="destinationModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="destModalTitle">
+              Destination Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p id="destModalPrice" class="fw-bold text-primary"></p>
+            <form id="destinationForm">
+              <input
+                type="text"
+                class="form-control mb-2"
+                placeholder="Your Name"
+                required/>
+              <input
+                type="email"
+                class="form-control mb-2"
+                placeholder="Your Email"
+                required/>
+
+              <textarea
+                class="form-control mb-2"
+                rows="3"
+                placeholder="Special Request"
+              ></textarea>
+              <button class="btn btn-success w-100" type="submit">
+                <i class="fas fa-paper-plane"></i> Book Now
+              </button>
+            </form>
+            <div
+              id="destSuccessMessage"
+              class="text-center text-success fw-bold mt-3 d-none">
+              <i class="fas fa-check-circle"></i> Your booking request has been
+              submitted!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------- -->
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose-us py-5" id="About">
+      <div class="container text-center">
+        <small class="text-primary fw-bold text-uppercase">Why Choose Us</small>
+        <h2 class="fw-bold mb-4">Your Perfect Travel Partner</h2>
+        <p class="text-muted mb-5">
+          We provide exceptional travel experiences with comfort, safety, and
+          joy in every journey.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              <i class="fas fa-plane-departure"></i>
+            </div>
+            <h5>Seamless Travel</h5>
+            <p>
+              From booking to boarding, we make every step effortless so you can
+              focus on your adventure.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h5>24/7 Support</h5>
+            <p>
+              We’re always here to assist you before, during, and after your
+              trip.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h5>Expert Guides</h5>
+            <p>
+              Explore with certified local experts who reveal hidden gems and
+              insider stories.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              <i class="fas fa-star"></i>
+            </div>
+            <h5>Trusted by Thousands</h5>
+            <p>
+              Join over 10,000 happy travelers who trust us with their dream
+              journeys.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------ -->
+
+    <!-- TRAVEL PACKAGES / TOURS SECTION -->
+    <section class="travel-packages py-5" id="Packages">
+      <div class="container">
+        <div class="text-center mb-4">
+          <small class="text-primary fw-bold">Our Packages</small>
+          <h2 class="fw-bold">Choose Your Perfect Trip</h2>
+          <p class="text-muted">
+            Explore our hand-picked tours and find the one that fits you best.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Adventure Tours -->
+          <div class="col-md-6 col-lg-3">
+            <div class="package-card shadow-sm rounded-4 h-100">
+              <img
+                src="images/Adventures.jpg.jpeg"
+                class="package-img"
+                alt="Adventure Tours"
+              />
+              <div class="package-body p-3 d-flex flex-column">
+                <h5 class="fw-bold">Adventure Tours</h5>
+                <p class="text-muted mb-2">From $499</p>
+                <button
+                  class="btn btn-primary mt-auto view-package-btn"
+                  data-title="Adventure Tours"
+                  data-price="$499"
+                >
+                  View Package
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Honeymoon Packages -->
+          <div class="col-md-6 col-lg-3">
+            <div class="package-card shadow-sm rounded-4 h-100">
+              <img
+                src="images/Honeymoon.jpg.jpeg"
+                class="package-img"
+                alt="Honeymoon"
+              />
+              <div class="package-body p-3 d-flex flex-column">
+                <h5 class="fw-bold">Honeymoon Packages</h5>
+                <p class="text-muted mb-2">From $899</p>
+                <button
+                  class="btn btn-primary mt-auto view-package-btn"
+                  data-title="Honeymoon Packages"
+                  data-price="$899"
+                >
+                  View Package
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Family Trips -->
+          <div class="col-md-6 col-lg-3">
+            <div class="package-card shadow-sm rounded-4 h-100">
+              <img
+                src="images/Family trip.jpg.jpeg"
+                class="package-img"
+                alt="Family Trips"
+              />
+              <div class="package-body p-3 d-flex flex-column">
+                <h5 class="fw-bold">Family Trips</h5>
+                <p class="text-muted mb-2">From $699</p>
+                <button
+                  class="btn btn-primary mt-auto view-package-btn"
+                  data-title="Family Trips"
+                  data-price="$699"
+                >
+                  View Package
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solo Travel Deals -->
+          <div class="col-md-6 col-lg-3">
+            <div class="package-card shadow-sm rounded-4 h-100">
+              <img
+                src="images/Tour.jpg.jpeg"
+                class="package-img"
+                alt="Solo Travel"
+              />
+              <div class="package-body p-3 d-flex flex-column">
+                <h5 class="fw-bold">Solo Travel Deals</h5>
+                <p class="text-muted mb-2">From $299</p>
+                <button
+                  class="btn btn-primary mt-auto view-package-btn"
+                  data-title="Solo Travel Deals"
+                  data-price="$299"
+                >
+                  View Package
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- When you click on View package you will see another page -->
+    <div class="modal fade" id="packageModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="packageTitle">
+              Package Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p id="packagePrice" class="fw-bold text-primary"></p>
+            <p>
+              Here you can add more information about this travel package, like
+              what's included, itinerary, etc.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <a href="pacakge.html" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -------------------------------------------------------------------------------------------- -->
+
+    <!-- This section is blog section, guide you before you travel, when you click on read more you will see more info -->
+    <section class="blog-section">
+      <div class="blog-overlay"></div>
+      <div class="blog-container">
+        <div class="blog-header">
+          <h2>Latest Travel Tips</h2>
+          <p>Read our expert guides to travel smarter and explore deeper.</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Blog 1 -->
+          <div class="blog-card">
+            <h3>🌴 Top Beach Escapes</h3>
+            <p class="intro">
+              Unwind in paradise with our curated list of breathtaking coastal
+              retreats.
+            </p>
+            <div class="details">
+              <p>
+                From Bali’s serene shores to Santorini’s sunsets — explore
+                beaches that redefine bliss.
+              </p>
+            </div>
+            <button class="toggle-btn">Read More</button>
+          </div>
+
+          <!-- Blog 2 -->
+          <div class="blog-card">
+            <h3>🎒 Smart Packing Hacks</h3>
+            <p class="intro">
+              Lighten your load and travel stress-free with our proven packing
+              tricks.
+            </p>
+            <div class="details">
+              <p>
+                Learn how to pack only what you need — and still have everything
+                ready for adventure.
+              </p>
+            </div>
+            <button class="toggle-btn">Read More</button>
+          </div>
+
+          <!-- Blog 3 -->
+          <div class="blog-card">
+            <h3>🌍 Visa-Free Getaways</h3>
+            <p class="intro">
+              Discover countries you can visit easily with minimal visa
+              requirements.
+            </p>
+            <div class="details">
+              <p>
+                Skip the paperwork and enjoy smooth travel experiences with our
+                updated visa-free guide.
+              </p>
+            </div>
+            <button class="toggle-btn">Read More</button>
+          </div>
+
+          <!-- Blog 4 -->
+          <div class="blog-card">
+            <h3>✈️ Budget-Friendly Trips</h3>
+            <p class="intro">
+              Travel far without breaking the bank — smart destinations await!
+            </p>
+            <div class="details">
+              <p>
+                Explore affordable yet unforgettable experiences — because
+                adventure shouldn’t cost a fortune.
+              </p>
+            </div>
+            <button class="toggle-btn">Read More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------ -->
+
+    <!-- This section is accommodation section, when you click on the button, show next page
+      -->
+    <section class="accommodation-wrapper" id="accommodations">
+      <section class="travel-section">
+        <div class="content">
+          <h1>Travel Memories<br /><span>You’ll Never Forget</span></h1>
+          <p>
+            Explore the best accommodations and make your journey unforgettable.
+          </p>
+          <button href="accommodation.html" id="exploreBtn">
+            Find Accommodation
+          </button>
+        </div>
+        <div class="image-container">
+          <div class="circle-img">
+            <img src="images/Travel.jpg.jpg" alt="Travel" />
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------ -->
+
+    <!-- This section is about travelers stories -->
+    <section class="reviews-section">
+      <div class="reviews-header">
+        <h2>What Our Travelers Say 🌍</h2>
+        <p>Real stories from people who explored the world with us.</p>
+      </div>
+
+      <div class="reviews-grid" id="Our Travelers">
+        <!-- Card 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img
+              src="images/person1.jpg.png"
+              alt="Sarah"
+              class="review-avatar"
+            />
+            <div>
+              <h4>Sarah Johnson</h4>
+              <small>Trip to Greece</small>
+            </div>
+          </div>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="review-text">
+            “Everything was smooth! The hotels, flights, and tours were
+            perfectly organized.”
+          </p>
+          <div class="more-content">
+            <p>
+              Our travel planner stayed in touch throughout the trip and made
+              sure everything was flawless. Highly recommend!
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img
+              src="images/person2.jpg.png"
+              alt="James"
+              class="review-avatar"
+            />
+            <div>
+              <h4>James Carter</h4>
+              <small>Safari in Kenya</small>
+            </div>
+          </div>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            “The safari was breathtaking! Excellent guides and stunning
+            landscapes.”
+          </p>
+          <div class="more-content">
+            <p>
+              The support team was incredible, making sure I had the best local
+              guides. A once-in-a-lifetime experience!
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img
+              src="images/person3.jpg.png"
+              alt="Emma"
+              class="review-avatar"
+            />
+            <div>
+              <h4>Emma Davis</h4>
+              <small>Adventure in Bali</small>
+            </div>
+          </div>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            “Loved the attention to detail! Every day felt magical.”
+          </p>
+          <div class="more-content">
+            <p>
+              From hidden waterfalls to sunrise hikes, the itinerary was
+              perfection. I’ll definitely book with them again!
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img
+              src="images/person4.jpg.png"
+              alt="Daniel"
+              class="review-avatar"
+            />
+            <div>
+              <h4>Daniel Lee</h4>
+              <small>Europe Tour</small>
+            </div>
+          </div>
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p class="review-text">
+            “Amazing service! The app made it so easy to manage my trip.”
+          </p>
+          <div class="more-content">
+            <p>
+              They even provided digital tickets and updates in real-time. I
+              never felt lost or confused — truly seamless!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ----------------------------------------------------------------------------------------------------- -->
+
+    <!-- This section is for explore your next destination from the map.you can zoom in and zoom out the map -->
+    <section class="virtual-tour py-5" id="map">
+      <div class="container text-center">
+        <small class="text-primary fw-bold text-uppercase">Virtual Tour</small>
+        <h2 class="fw-bold mb-3">Take a 360° Journey Before You Go</h2>
+        <p class="text-muted mb-5">
+          Explore your next destination from above. Interact, zoom, and feel the
+          vibe before you arrive!
+        </p>
+
+        <div class="map-wrapper">
+          <div class="map-glass pulse" id="tourMap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086479447118!2d144.9630583158467!3d-37.81361197975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5773e0d31f5a1a2!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1605502451890!5m2!1sen!2sau"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+            <div class="map-overlay"></div>
+          </div>
+        </div>
+
+        <button
+          id="exploreBtn"
+          class="btn btn-primary rounded-pill mt-4 px-5 py-2 shadow-lg explore-btn"
+        >
+          <i class="fas fa-globe-americas me-2"></i>Start Exploration
+        </button>
+      </div>
+    </section>
+    <!-- ----------------------------------------------------------------------------------------------------- -->
+
+    <!-- This section you can log In or Sign Up, and see social media icon  -->
+    <div class="travel-auth-wrapper" id="Contact">
+      <div class="travel-auth-container">
+        <div class="travel-form-side">
+          <h3 class="travel-logo">Travel<span>Ease</span></h3>
+
+          <div class="auth-switch">
+            <button class="active" id="signup-btn">Sign Up</button>
+            <button id="login-btn">Log In</button>
+          </div>
+
+          <h2 class="form-title" id="form-title">Begin Your Adventure</h2>
+          <p class="form-subtitle" id="form-subtitle">
+            Sign up with an Open account
+          </p>
+
+          <div class="social-buttons">
+            <a href="https://www.google.com" target="_blank">
+              <i class="fab fa-google"></i
+            ></a>
+            <a href="https://www.linkedin.com" target="_blank">
+              <i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank">
+              <i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank">
+              <i class="fab fa-x-twitter"></i
+            ></a>
+          </div>
+          <br />
+          <form class="travel-form" id="auth-form">
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <label class="remember-me">
+              <input type="checkbox" /> Remember me
+            </label>
+            <button type="submit" class="submit-btn" id="submit-btn">
+              Let’s Start
+            </button>
+          </form>
+        </div>
+        <!-- When you click on Start your adventure button, you will back to the home section -->
+        <div class="travel-image-side">
+          <div class="overlay-box">
+            <h3>Travel the World, Your Way!</h3>
+            <p>Explore the World, Beyond Boundaries!</p>
+            <a href="#" class="explore-btn">Start your adventure →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- popup-message for log in and sign in -->
+    <div id="popup-message" class="popup hidden">
+      <div class="popup-content">
+        <h3 id="popup-title">Success</h3>
+        <p id="popup-text">You have signed up!</p>
+        <button id="popup-close">OK</button>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------- -->
+
+    <!-- Footer section -->
+    <footer class="glass-footer">
+      <div class="footer-overlay"></div>
+
+      <div class="footer-content">
+        <!-- company logo -->
+        <div class="footer-section">
+          <h2 class="footer-logo">Travel<span>Ease</span></h2>
+          <p>
+            Embark on unforgettable journeys. Discover hidden gems, experience
+            local cultures, and travel smarter.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#accommodations">Accommodations</a></li>
+            <li><a href="#Our Travelers">Our Travelers</a></li>
+            <li><a href="#map">Map Journey</a></li>
+            <li><a href="#Tours">Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank">
+              <i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://linkedin.com" target="_blank">
+              <i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank">
+              <i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <strong>TravelEase</strong> | All rights reserved 🌍</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>

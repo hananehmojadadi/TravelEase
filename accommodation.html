@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accommodation Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="images/favicon.png.png" />
+
+    <!-- Css Code -->
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      p.subtitle {
+        color: #555;
+        margin-bottom: 40px;
+        font-size: 1rem;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        width: 260px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .card:hover img {
+        transform: scale(1.05);
+      }
+
+      .card-body {
+        padding: 15px 20px;
+        text-align: center;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #222;
+      }
+
+      .card-text {
+        color: #777;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.9rem;
+        background: #007bff;
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s;
+      }
+
+      .btn:hover {
+        background: #0056b3;
+      }
+
+      .view-more {
+        display: block;
+        margin: 35px auto;
+        padding: 10px 28px;
+        border: 2px solid #007bff;
+        background: white;
+        color: #007bff;
+        border-radius: 25px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .view-more:hover {
+        background: #007bff;
+        color: white;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+
+      .modal-content {
+        background: #fff;
+        padding: 30px 25px;
+        border-radius: 15px;
+        width: 350px;
+        max-width: 90%;
+        text-align: center;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #555;
+      }
+
+      #confirmationMessage {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        font-weight: 500;
+        animation: fadeOut 3s forwards;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Responsive Code  */
+      @media (max-width: 1024px) {
+        .cards {
+          gap: 20px;
+        }
+
+        .card {
+          width: 220px;
+        }
+
+        .card img {
+          height: 160px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 80%;
+          max-width: 300px;
+        }
+
+        .card img {
+          height: 180px;
+        }
+
+        .view-more {
+          width: 70%;
+          padding: 12px 0;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p.subtitle {
+          font-size: 0.9rem;
+        }
+
+        .card-title {
+          font-size: 1.1rem;
+        }
+
+        .card-text {
+          font-size: 0.85rem;
+        }
+
+        .btn {
+          font-size: 0.85rem;
+          padding: 6px 10px;
+        }
+
+        .modal-content {
+          width: 90%;
+          padding: 20px 15px;
+        }
+
+        .view-more {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <!-- HTML Code -->
+  <body>
+    <div class="container">
+      <h2>Find Your Perfect Stay</h2>
+      <p class="subtitle">
+        Hand-picked hotels, resorts, villas — click "Book Now" to reserve.
+      </p>
+
+      <div class="cards" id="cardContainer"></div>
+      <button class="view-more" id="viewMoreBtn">View More Stays</button>
+    </div>
+
+    <div class="modal" id="bookingModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice"></p>
+        <button class="btn" id="confirmBtn">
+          <span class="material-icons">check</span> Confirm Booking
+        </button>
+      </div>
+    </div>
+    <div id="Message">Booking Confirmed!</div>
+
+    <!-- Js Code -->
+    <script>
+      const cardContainer = document.getElementById("cardContainer");
+      const viewMoreBtn = document.getElementById("viewMoreBtn");
+      const modal = document.getElementById("bookingModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalPrice = document.getElementById("modalPrice");
+      const closeBtn = document.querySelector(".close");
+      const confirmBtn = document.getElementById("confirmBtn");
+      const confirmationMessage = document.getElementById(
+        "confirmationMessage"
+      );
+
+      // Information of each card
+      const allCards = [
+        {
+          title: "Luxury Hotel",
+          img: "images/Luxury.jpg.jpeg",
+          rating: 4.7,
+          price: "$150/night",
+        },
+        {
+          title: "Beach Resort",
+          img: "images/Resort.jpg.jpeg",
+          rating: 4.8,
+          price: "$200/night",
+        },
+        {
+          title: "Private Villa",
+          img: "images/Private Villa.jpg.jpeg",
+          rating: 4.9,
+          price: "$300/night",
+        },
+        {
+          title: "Budget Hostel",
+          img: "images/Budget Hoste.jpg.jpeg",
+          rating: 4.3,
+          price: "$50/night",
+        },
+        {
+          title: "Cozy Cabin",
+          img: "images/Cozy Cabin.jpg.jpeg",
+          rating: 4.5,
+          price: "$120/night",
+        },
+        {
+          title: "City Apartment",
+          img: "images/City Apartment.jpg.jpeg",
+          rating: 4.6,
+          price: "$180/night",
+        },
+        {
+          title: "Lake House",
+          img: "images/Lake House.jpg.jpeg",
+          rating: 4.8,
+          price: "$250/night",
+        },
+        {
+          title: "Mountain Lodge",
+          img: "images/Mountain Lodge.jpg.jpeg",
+          rating: 4.7,
+          price: "$220/night",
+        },
+      ];
+
+      let currentIndex = 0;
+      const loadCount = 4;
+
+      function loadNextCards() {
+        for (
+          let i = currentIndex;
+          i < currentIndex + loadCount && i < allCards.length;
+          i++
+        ) {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+                        <img src="${allCards[i].img}" alt="${allCards[i].title}">
+                        <div class="card-body">
+                            <h3 class="card-title">${allCards[i].title}</h3>
+                            <p class="card-text"><span class="material-icons" style="font-size:18px;color:#f4c150;">star</span>${allCards[i].rating} · From ${allCards[i].price}</p>
+                            <button class="btn book-btn" data-title="${allCards[i].title}" data-price="${allCards[i].price}">
+                                <span class="material-icons" style="font-size:18px;">hotel</span> Book Now
+                            </button>
+                        </div>`;
+          cardContainer.appendChild(card);
+        }
+        attachBookEvents();
+        currentIndex += loadCount;
+        if (currentIndex >= allCards.length) {
+          viewMoreBtn.disabled = true;
+          viewMoreBtn.textContent = "All Stays Loaded";
+          viewMoreBtn.style.opacity = 0.6;
+          viewMoreBtn.style.cursor = "not-allowed";
+        }
+      }
+
+      viewMoreBtn.addEventListener("click", loadNextCards);
+
+      function attachBookEvents() {
+        const bookBtns = document.querySelectorAll(".book-btn");
+        bookBtns.forEach((btn) => {
+          btn.onclick = () => {
+            modal.style.display = "flex";
+            modalTitle.textContent = btn.dataset.title;
+            modalPrice.textContent = "Price: " + btn.dataset.price;
+          };
+        });
+      }
+
+      closeBtn.onclick = () => (modal.style.display = "none");
+      window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      };
+
+      confirmBtn.onclick = () => {
+        modal.style.display = "none";
+        confirmationMessage.style.display = "block";
+        setTimeout(() => (confirmationMessage.style.display = "none"), 3000);
+      };
+
+      loadNextCards();
+    </script>
+  </body>
+</html>
