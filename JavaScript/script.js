@@ -324,9 +324,9 @@ document.addEventListener('DOMContentLoaded', () => {
       .popup { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:9999; }
       .popup.hidden { display: none; }
       .popup-content { background: #fff; border-radius:14px; padding:22px 26px; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.18); min-width:260px; max-width:90%; }
-      .popup-content h3 { margin:0 0 8px 0; font-size:18px; color:#1f7a73; }
+      .popup-content h3 { margin:0 0 8px 0; font-size:18px; color:#0072ff; }
       .popup-content p { margin:0 0 12px 0; color:#333; font-size:14px; }
-      #popup-close { margin-top:8px; padding:8px 14px; border-radius:8px; border:0; background:#1f7a73; color:#fff; cursor:pointer; }
+      #popup-close { margin-top:8px; padding:8px 14px; border-radius:8px; border:0; background:#0072ff; color:#fff; cursor:pointer; }
       @media (max-width:420px){ .popup-content{ padding:18px; } }
     `;
     document.head.appendChild(styleEl);

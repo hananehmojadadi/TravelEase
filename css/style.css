@@ -1466,7 +1466,7 @@ button:hover {
   height: 90vh;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(128, 202, 242, 0.08);
 }
 
 .travel-form-side {
@@ -1493,7 +1493,7 @@ button:hover {
 }
 
 .auth-switch button {
-  border: 1px solid #000;
+  border: 1px solid  #4897f7;
   background: transparent;
   padding: 6px 14px;
   border-radius: 6px;
@@ -1504,7 +1504,7 @@ button:hover {
 }
 
 .auth-switch .active {
-  background: #000;
+  background:  #0072ff;
   color: #fff;
 }
 
@@ -1534,13 +1534,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  color: #333;
+  color:  #0072ff;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .social-buttons a:hover {
-  background: #000;
+  background: #59a2f5;
   color: #fff;
 }
 
@@ -1581,7 +1581,7 @@ button:hover {
 .submit-btn {
   margin-top: 8px;
   padding: 10px;
-  background: #000;
+  background: #0072ff;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -1592,7 +1592,8 @@ button:hover {
 }
 
 .submit-btn:hover {
-  background: #0072ff;
+   background: #5eb4ff;
+
 }
 
 .travel-image-side {
@@ -1656,13 +1657,13 @@ button:hover {
   animation: popIn 0.3s ease;
 }
 .popup-content h3 {
-  color: #00a896;
+  color:  #0072ff;
   margin-bottom: 10px;
 }
 .popup-content button {
   margin-top: 15px;
   padding: 8px 18px;
-  background: #00a896;
+  background: #0072ff;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -1749,9 +1750,9 @@ button:hover {
 .footer-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 40, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(76, 82, 93, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1;
 }
 
