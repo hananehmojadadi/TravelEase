@@ -168,13 +168,29 @@ html {
   text-align: center;
   display: inline-block;
 }
-#head{
+#head {
   border: 1.5px solid white;
   width:250px;
   height:50px;
   text-align: center;
   border-radius:10px;
   padding-top:8px;
+}
+@media (max-width: 768px) {
+  #head {
+    width: 60%;
+    margin: 0 auto;  
+    display: block;
+  }
+}
+
+/* For small phones */
+@media (max-width: 480px) {
+  #head {
+    width: 80%;
+    margin: 0 auto;  
+    display: block;
+  }
 }
 /* Mobile responsiveness for hero */
 @media (max-width: 768px) {
