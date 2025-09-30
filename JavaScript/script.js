@@ -400,3 +400,12 @@ document.getElementById("auth-form").addEventListener("submit", (e) => {
   e.preventDefault();
   alert(`${submitBtn.textContent} Successful! 🌍`);
 });
+
+// ------------------------------------------------------------------------------------------------
+  // when refresh the page it does not go down 
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };

@@ -50,7 +50,7 @@ html {
   display: none;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .nav-links a {
