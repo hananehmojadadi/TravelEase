@@ -210,22 +210,6 @@ document.getElementById("exploreBtn").addEventListener("click", function () {
 
 // ----------------------------------------------------------------------------------------
 
-const exploreBtn = document.getElementById("exploreBtn");
-const tourMap = document.getElementById("tourMap");
-
-exploreBtn.addEventListener("click", () => {
-  tourMap.classList.add("active");
-
-  exploreBtn.innerHTML =
-    '<i class="fas fa-check-circle me-2"></i>Exploration Activated!';
-
-  setTimeout(() => {
-    tourMap.classList.remove("active");
-    exploreBtn.innerHTML =
-      '<i class="fas fa-globe-americas me-2"></i>Start Exploration';
-  }, 4000);
-});
-
 // animation on scroll
 const featureCards = document.querySelectorAll(".feature-card");
 
