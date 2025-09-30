@@ -1,4 +1,4 @@
-// Hero swiper (glass cards) 
+// Hero swiper (glass cards)
 const heroSwiper = new Swiper(".hero-swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
@@ -51,7 +51,6 @@ slideButtons.forEach((btn, index) => {
 });
 // ---------------------------------------------------------------------------------------------
 
-
 // Destination swiper (3-card grouped slider)
 const destinationSwiper = new Swiper(".destination-swiper", {
   slidesPerView: 3,
@@ -75,64 +74,65 @@ const destinationSwiper = new Swiper(".destination-swiper", {
 
 // ----------------------------------------------------------------------------------------------------
 
-
 // API KEY of Unsplash
 const accessKey = "Q2i_-8GCHDf1xnm64usUAeqNoZuVNOnOTqYGSZbKuAQ";
 const searchBtn = document.getElementById("exploreSearchBtn");
 const searchInput = document.querySelector(".explore-search-bar input");
 const messageBox = document.getElementById("exploreMessageBox");
 
+function showMessage(text, type = "loading") {
+    messageBox.textContent = text;
+    messageBox.className = "explore-message show " + type;
+    messageBox.style.display = "block";
+}
+
 searchBtn.addEventListener("click", async () => {
-  const query = searchInput.value.trim().toLowerCase();
-  if (!query) {
-    messageBox.textContent = "Please enter a search term!";
-    return;
-  }
-
-  messageBox.textContent = "Loading...";
-
-
-  const cards = document.querySelectorAll(".explore-card");
-  let matchedCard = null;
-
-  cards.forEach((card) => {
-    const spanText = card.querySelector("span").textContent.toLowerCase();
-    if (spanText === query) {
-   
-      matchedCard = card;
+    const query = searchInput.value.trim().toLowerCase();
+    if (!query) {
+        showMessage("Please enter a search term!", "warning");
+        return;
     }
-  });
 
-  if (!matchedCard) {
-    messageBox.textContent = "No matching destination found!";
-    return;
-  }
+    showMessage("⏳ Loading...", "loading");
 
-  try {
-    // Take picture from Unsplash
-    const response = await fetch(
-      `https://api.unsplash.com/photos/random?query=${query}&client_id=${accessKey}`
-    );
-    if (!response.ok) throw new Error("Failed to fetch image");
-    const data = await response.json();
+    const cards = document.querySelectorAll(".explore-card");
+    let matchedCard = null;
 
-    matchedCard.querySelector("img").src = data.urls.regular;
-    matchedCard.querySelector("img").alt = query;
-    matchedCard.querySelector("span").textContent =
-      query.charAt(0).toUpperCase() + query.slice(1);
+    cards.forEach(card => {
+        const spanText = card.querySelector("span").textContent.toLowerCase();
+        if (spanText === query) {
+            matchedCard = card;
+        }
+    });
 
-    messageBox.textContent = "";     
-  } catch (error) {
-    console.error(error);
-    messageBox.textContent = "Error loading destination!";
-  }
+    if (!matchedCard) {
+        showMessage("No matching destination found!", "error");
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://api.unsplash.com/photos/random?query=${query}&client_id=${accessKey}`);
+        if (!response.ok) throw new Error("Failed to fetch image");
+        const data = await response.json();
+
+        matchedCard.querySelector("img").src = data.urls.regular;
+        matchedCard.querySelector("img").alt = query;
+        matchedCard.querySelector("span").textContent = query.charAt(0).toUpperCase() + query.slice(1);
+
+        showMessage("✅ Image updated successfully!", "success");
+    } catch (error) {
+        console.error(error);
+        showMessage("Error loading destination!", "error");
+    }
 });
+
+// --------------------------------------------------------------------------------------------------
 
 const navbar = document.querySelector(".navbar");
 const sections = document.querySelectorAll("section");
 
 window.addEventListener("scroll", () => {
-  let scrollPos = window.scrollY + 100; 
+  let scrollPos = window.scrollY + 100;
 
   sections.forEach((section) => {
     if (
@@ -158,7 +158,7 @@ function toggleMenu() {
 }
 // -------------------------------------------------------------------------------------
 
-// Make buttons open 
+// Make buttons open
 const packageButtons = document.querySelectorAll(".view-package-btn");
 const modalTitle = document.getElementById("packageTitle");
 const modalPrice = document.getElementById("packagePrice");
@@ -174,7 +174,7 @@ packageButtons.forEach((btn) => {
   });
 });
 
-// Book Now button 
+// Book Now button
 const bookButtons = document.querySelectorAll(".btn-book");
 const destModalTitle = document.getElementById("destModalTitle");
 const destModalPrice = document.getElementById("destModalPrice");
@@ -208,6 +208,8 @@ document.getElementById("exploreBtn").addEventListener("click", function () {
   window.location.href = "accommodation.html";
 });
 
+// ----------------------------------------------------------------------------------------
+
 const exploreBtn = document.getElementById("exploreBtn");
 const tourMap = document.getElementById("tourMap");
 
@@ -216,7 +218,6 @@ exploreBtn.addEventListener("click", () => {
 
   exploreBtn.innerHTML =
     '<i class="fas fa-check-circle me-2"></i>Exploration Activated!';
-
 
   setTimeout(() => {
     tourMap.classList.remove("active");
@@ -238,7 +239,7 @@ function showCardsOnScroll() {
 }
 
 window.addEventListener("scroll", showCardsOnScroll);
-showCardsOnScroll(); 
+showCardsOnScroll();
 
 document.querySelectorAll(".toggle-btn").forEach((button) => {
   button.addEventListener("click", () => {
@@ -311,7 +312,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //  Validation check
-  if (!signupBtn || !loginBtn || !authForm || !usernameField || !emailField || !passwordField || !submitBtn) {
+  if (
+    !signupBtn ||
+    !loginBtn ||
+    !authForm ||
+    !usernameField ||
+    !emailField ||
+    !passwordField ||
+    !submitBtn
+  ) {
     console.warn("Auth script: missing expected elements — check IDs.");
     return;
   }
@@ -346,12 +355,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  setMode(true); 
+  setMode(true);
 
   signupBtn.addEventListener("click", () => setMode(true));
   loginBtn.addEventListener("click", () => setMode(false));
 
-  
   function showPopup(title, message) {
     popupTitle.textContent = title;
     popupText.textContent = message;
@@ -377,7 +385,10 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("userEmail", emailVal);
       localStorage.setItem("userName", usernameVal);
 
-      showPopup("🎉 Sign Up Successful", `Welcome aboard${usernameVal ? ", " + usernameVal : ""}!`);
+      showPopup(
+        "🎉 Sign Up Successful",
+        `Welcome aboard${usernameVal ? ", " + usernameVal : ""}!`
+      );
       authForm.reset();
 
       // Switch to login after sign up
@@ -385,12 +396,14 @@ document.addEventListener("DOMContentLoaded", () => {
         setMode(false);
       }, 2000);
     } else {
-      showPopup("✨ Login Successful", `Welcome back${usernameVal ? ", " + usernameVal : ""}!`);
+      showPopup(
+        "✨ Login Successful",
+        `Welcome back${usernameVal ? ", " + usernameVal : ""}!`
+      );
       authForm.reset();
 
-    
       setTimeout(() => {
-        window.location.href = "index.html"; 
+        window.location.href = "index.html";
       }, 2000);
     }
   });
@@ -403,5 +416,3 @@ document.getElementById("auth-form").addEventListener("submit", (e) => {
   e.preventDefault();
   alert(`${submitBtn.textContent} Successful! 🌍`);
 });
-      
-
