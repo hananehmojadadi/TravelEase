@@ -1634,7 +1634,7 @@ button:hover {
 }
 
 .explore-btn:hover {
-  background: #000;
+  background:#0072ff ;
   color: #fff;
 }
 /* .popup-message when you login or sign in */
@@ -1663,7 +1663,7 @@ button:hover {
 .popup-content button {
   margin-top: 15px;
   padding: 8px 18px;
-  background: #0072ff;
+  background: #00a896;
   color: #fff;
   border: none;
   border-radius: 8px;
